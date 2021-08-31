@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{/layout/index::dynamic(~{::main})}">
+<body>         
+    <main>
+        <div class="card mt-3" th:fragment="shoppingcart">
+            <div class="card-header bg-success text-white">
+                Shopping cart
+              </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat=" item in cart.items">
+                            <td>{{item.productId}}</td>
+                            <td>{{item.name}}</td>
+                            <td>${{item.price | number : 2}}</td>
+                            <td><input type="number" ng-change="cart.saveToLocalStorage()" ng-model="item.qty"></td>
+                            <td>${{item.qty*item.price | number : 2}}</td>
+                            <td>
+                                <button ng-click="cart.remove(item.productId)" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <div>
+                    <button ng-click="cart.clear()" class="btn btn-secondary">Clear</button>
+                    <a th:href="@{/order/checkout}" class="text-decoration-none btn btn-success">Checkout</a>
+                </div>
+              <div>
+                  <b>Total:</b> <i>{{cart.count}} items x ${{cart.amount | number: 2}}</i>
+              </div>
+              </div>
+          </div>
+    </main>
+
+</body>
+</html>

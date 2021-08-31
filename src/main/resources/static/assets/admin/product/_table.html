@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-header  bg-dark text-white">Product List</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Date</th>
+                <th scope="col">Image</th>
+                <th scope="col">Category</th>
+                <th scope="col">Available?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="p in items | limitTo:pager.size:pager.page">
+                <th scope="row">{{p.productId}}</th>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.date}}</td>
+                <td><img src="{{'/img/' + p.image}}" alt="" style="max-width:100px"></td>
+                <td>{{p.category.name}}</td>
+                <td>{{p.available?'Yes':'No'}}</td>
+                <td>
+                    <div class="btn-group">
+                        <button ng-click="edit(p)" class="btn btn-warning">Edit</button>
+                        <button ng-click="delete(p)" class="btn btn-danger">Delete</button>
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="card-footer">
+        <button ng-click="pager.first()" class="btn btn-outline-primary">First</button>
+        <button ng-click="pager.prev()" class="btn btn-outline-primary">Pre</button>
+        <button class="btn btn-primary">{{pager.page + 1}} of {{pager.count}}</button>
+        <button ng-click="pager.next()" class="btn btn-outline-primary">Next</button>
+        <button ng-click="pager.last()" class="btn btn-outline-primary">Last</button>
+    </div>
+</div>

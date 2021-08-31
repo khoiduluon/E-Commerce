@@ -1,0 +1,38 @@
+
+
+    <!-- <table ng-if="db" style="width:100%" border="1">
+    <thead>
+        <tr >
+            <th></th>
+        </tr>
+        <tbody>
+            <tr ng-repeat="acc in admins">
+                <th>{{acc.fullname}}</th>
+                <th ng-repeat="role in roles">
+                    <input type="checkbox" 
+                    ng-checked="authority_of(acc, role)"
+                    ng-click="authority_changed(acc, role)">
+                </th>
+            </tr>
+        </tbody>
+    </thead>
+    </table>  -->
+
+    <table class="table">
+        <thead>
+          <tr>
+              <th></th>
+            <th scope="col" ng-repeat="role in roles">{{role.name}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="acc in admins">
+            <th>{{acc.fullname}}</th>
+            <th ng-repeat="role in roles">
+                <input type="checkbox" 
+                ng-checked="authority_of(acc, role)"
+                ng-click="authority_changed(acc, role)">
+            </th>
+          </tr>
+        </tbody>
+      </table>

@@ -1,0 +1,25 @@
+<div xmlns:th="https://www.thymeleaf.org">
+    <!-- <div class="card" >
+        <div class="card-header">
+            Danh mục sản phẩm
+        </div>
+        <ul class="list-group">
+            <li  class="list-group-item active" aria-current="true">
+                <a href="/product/list?cid=1">Item 1</a></li>
+                <li  class="list-group-item " aria-current="true">
+                    <a href="/product/list?cid=2">Item 2</a></li>
+        </ul>
+    </div> -->
+
+    <ul class="list-unstyled templatemo-accordion mt-3">
+        <li class="pb-3">
+            <a class="collapsed d-flex justify-content-between h2 text-decoration-none" href="#">
+                Categories
+                <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+            </a>
+            <ul id="collapseThree" class="collapse list-unstyled pl-3">
+                <li th:each="p:${cates}"><a class="text-decoration-none" th:href="@{|/product/list?cid=${p.categoryId}|}">-- [[${p.name}]]</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

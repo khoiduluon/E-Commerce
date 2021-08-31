@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{/layout/index::dynamic(~{::main})}">
+
+<body>
+    <main>
+        <!-- <div class="cart">
+            <div class="cart-header">
+                Login
+            </div>
+            <div class="cart-body">
+                <form th:action="@{/security/login}" method="post">
+                    <div class="form-group">
+                        Username:
+                        <input type="text" name="username" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        Password:
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        
+                        <input type="checkbox" name="remember-me">Remember me?
+                        </div>
+                        <button>Login</button>
+                </form>
+            </div>
+            <div class="cart-footer">
+                <i th:text="${message}"></i>
+            </div>
+        </div> -->
+        <div class="mt-3">
+
+            <form th:action="@{/security/login}" method="post">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="username">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1"  name="password">
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1"  name="remember-me">
+                  <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                </div>
+                <button type="submit" class="btn btn-success">Login</button>
+              </form>
+              <div class="mt-3">
+                <i th:text="${message}" class="text-danger fw-bold"></i>
+            </div>
+        </div>
+    </main>
+
+    
+</body>
+
+</html>
